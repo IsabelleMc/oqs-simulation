@@ -111,6 +111,10 @@ def evolve_surrogate(
         "bath_n": bath_total_number,
     }
 
-    result = qt.sesolve(H, psi0, tlist, e_ops=list(e_ops.values()), progress_bar=True)
+    result = qt.sesolve(
+        H, psi0, tlist,
+        e_ops=list(e_ops.values()),
+        options={"progress_bar": "text"},
+    )
     expect_dict = {name: result.expect[i] for i, name in enumerate(e_ops.keys())}
     return result, expect_dict, X_k

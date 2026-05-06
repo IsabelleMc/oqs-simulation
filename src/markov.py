@@ -36,5 +36,6 @@ def evolve_markov(p: SpinBosonParams, t_max: float, rho0: qt.Qobj, n_steps: int 
 
     tlist = np.linspace(0, t_max, n_steps)
     return qt.mesolve(
-        H_sys, rho0, tlist, [L_op], [qt.sigmax(), qt.sigmay(), qt.sigmaz()]
+        H_sys, rho0, tlist, c_ops=[L_op],
+        e_ops=[qt.sigmax(), qt.sigmay(), qt.sigmaz()],
     )

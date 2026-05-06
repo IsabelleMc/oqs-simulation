@@ -66,7 +66,8 @@ src/
   surrogate.py       # surrogate Hamiltonian (QuTiP)
   chain_mapping.py   # chain mapping + TEBD (TeNPy)
 notebooks/
-  demo.ipynb         # reproduces the weak-coupling comparison from Fig. 4.2
+  demo.ipynb         # weak-coupling validation (Fig. 4.2) and strong-coupling
+                     # comparison (Fig. 4.4) where Markov breaks down
 ```
 
 ## Running it
@@ -77,10 +78,11 @@ pip install -r requirements.txt
 jupyter notebook notebooks/demo.ipynb
 ```
 
-The demo notebook produces the headline cross-method comparison plot in
-under a minute on a laptop. To see the strong-coupling regime where the
-Markov approximation breaks down, change `alpha=0.001` to `alpha=0.1` in
-the second cell.
+The demo notebook produces both the weak-coupling validation plot (where
+all three methods agree, confirming the implementations are correct) and
+the strong-coupling plot (where the Markov approximation predicts full
+relaxation but the other two methods show a finite steady state — the
+non-Markovian signature). End to end runs in under a minute on a laptop.
 
 ## References
 
